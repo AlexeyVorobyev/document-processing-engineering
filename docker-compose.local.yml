@@ -1,0 +1,12 @@
+services:
+  mongodb:
+    image: "mongo:8.0.3-noble"
+    container_name: document-processing-mongodb
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: dpb_app
+      MONGO_INITDB_ROOT_PASSWORD: dpb_app_password
+    volumes:
+      - ./data/mongo_dp:/data/db:rw
+    restart: unless-stopped
